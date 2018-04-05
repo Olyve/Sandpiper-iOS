@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2291EE292076B62F00C983CC /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2291EE282076B62F00C983CC /* UIColor+Extensions.swift */; };
 		22DD357E2076A738004ED9FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DD357D2076A738004ED9FC /* AppDelegate.swift */; };
 		22DD35802076A738004ED9FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DD357F2076A738004ED9FC /* ViewController.swift */; };
 		22DD35832076A738004ED9FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DD35812076A738004ED9FC /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2291EE282076B62F00C983CC /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		22DD357A2076A738004ED9FC /* Sandpiper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sandpiper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22DD357D2076A738004ED9FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22DD357F2076A738004ED9FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2291EE272076B61900C983CC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2291EE282076B62F00C983CC /* UIColor+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		22DD35712076A738004ED9FC = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +71,7 @@
 		22DD357C2076A738004ED9FC /* Sandpiper */ = {
 			isa = PBXGroup;
 			children = (
+				2291EE272076B61900C983CC /* Utils */,
 				22DD357D2076A738004ED9FC /* AppDelegate.swift */,
 				22DD357F2076A738004ED9FC /* ViewController.swift */,
 				22DD35812076A738004ED9FC /* Main.storyboard */,
@@ -205,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22DD35802076A738004ED9FC /* ViewController.swift in Sources */,
+				2291EE292076B62F00C983CC /* UIColor+Extensions.swift in Sources */,
 				22DD357E2076A738004ED9FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,11 +365,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J68VQM656;
 				INFOPLIST_FILE = Sandpiper/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.samgalizia.Sandpiper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -369,11 +384,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J68VQM656;
 				INFOPLIST_FILE = Sandpiper/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.samgalizia.Sandpiper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
