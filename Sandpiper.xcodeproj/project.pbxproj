@@ -12,6 +12,7 @@
 		22DD35832076A738004ED9FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DD35812076A738004ED9FC /* Main.storyboard */; };
 		22DD35852076A739004ED9FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22DD35842076A739004ED9FC /* Assets.xcassets */; };
 		22DD35882076A739004ED9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DD35862076A739004ED9FC /* LaunchScreen.storyboard */; };
+		82D44B2CFBB098B506A4D385 /* Pods_Sandpiper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FC336EC50B737C619DC485 /* Pods_Sandpiper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		22DD35842076A739004ED9FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22DD35872076A739004ED9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22DD35892076A739004ED9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4DDB83464E04F0199E1AABC /* Pods-Sandpiper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandpiper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sandpiper/Pods-Sandpiper.release.xcconfig"; sourceTree = "<group>"; };
+		B3607192B9F8B05298909EB5 /* Pods-Sandpiper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandpiper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sandpiper/Pods-Sandpiper.debug.xcconfig"; sourceTree = "<group>"; };
+		F4FC336EC50B737C619DC485 /* Pods_Sandpiper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sandpiper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D44B2CFBB098B506A4D385 /* Pods_Sandpiper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				22DD357C2076A738004ED9FC /* Sandpiper */,
 				22DD357B2076A738004ED9FC /* Products */,
+				41458A8179E6314929E713CA /* Pods */,
+				B9D760F1A077870D62B5DEB9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = Sandpiper;
 			sourceTree = "<group>";
 		};
+		41458A8179E6314929E713CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3607192B9F8B05298909EB5 /* Pods-Sandpiper.debug.xcconfig */,
+				A4DDB83464E04F0199E1AABC /* Pods-Sandpiper.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B9D760F1A077870D62B5DEB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4FC336EC50B737C619DC485 /* Pods_Sandpiper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22DD358C2076A739004ED9FC /* Build configuration list for PBXNativeTarget "Sandpiper" */;
 			buildPhases = (
+				B17A57A2BE821B3E073BC82B /* [CP] Check Pods Manifest.lock */,
 				22DD35762076A738004ED9FC /* Sources */,
 				22DD35772076A738004ED9FC /* Frameworks */,
 				22DD35782076A738004ED9FC /* Resources */,
+				5B16C1C073278E0068828481 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B16C1C073278E0068828481 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Sandpiper/Pods-Sandpiper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sandpiper/Pods-Sandpiper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B17A57A2BE821B3E073BC82B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sandpiper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		22DD35762076A738004ED9FC /* Sources */ = {
@@ -278,15 +347,13 @@
 		};
 		22DD358D2076A739004ED9FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3607192B9F8B05298909EB5 /* Pods-Sandpiper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J68VQM656;
 				INFOPLIST_FILE = Sandpiper/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.samgalizia.Sandpiper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -296,15 +363,13 @@
 		};
 		22DD358E2076A739004ED9FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4DDB83464E04F0199E1AABC /* Pods-Sandpiper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J68VQM656;
 				INFOPLIST_FILE = Sandpiper/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.samgalizia.Sandpiper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
