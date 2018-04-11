@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2291EE292076B62F00C983CC /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2291EE282076B62F00C983CC /* UIColor+Extensions.swift */; };
 		22DD357E2076A738004ED9FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DD357D2076A738004ED9FC /* AppDelegate.swift */; };
-		22DD35802076A738004ED9FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DD357F2076A738004ED9FC /* ViewController.swift */; };
+		22DD35802076A738004ED9FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DD357F2076A738004ED9FC /* LoginViewController.swift */; };
 		22DD35832076A738004ED9FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DD35812076A738004ED9FC /* Main.storyboard */; };
 		22DD35852076A739004ED9FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22DD35842076A739004ED9FC /* Assets.xcassets */; };
 		22DD35882076A739004ED9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DD35862076A739004ED9FC /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		2291EE282076B62F00C983CC /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		22DD357A2076A738004ED9FC /* Sandpiper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sandpiper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22DD357D2076A738004ED9FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22DD357F2076A738004ED9FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		22DD357F2076A738004ED9FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22DD35822076A738004ED9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22DD35842076A739004ED9FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22DD35872076A739004ED9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,13 +71,13 @@
 		22DD357C2076A738004ED9FC /* Sandpiper */ = {
 			isa = PBXGroup;
 			children = (
-				2291EE272076B61900C983CC /* Utils */,
+				22DD35892076A739004ED9FC /* Info.plist */,
 				22DD357D2076A738004ED9FC /* AppDelegate.swift */,
-				22DD357F2076A738004ED9FC /* ViewController.swift */,
-				22DD35812076A738004ED9FC /* Main.storyboard */,
+				22DD357F2076A738004ED9FC /* LoginViewController.swift */,
 				22DD35842076A739004ED9FC /* Assets.xcassets */,
 				22DD35862076A739004ED9FC /* LaunchScreen.storyboard */,
-				22DD35892076A739004ED9FC /* Info.plist */,
+				22DD35812076A738004ED9FC /* Main.storyboard */,
+				2291EE272076B61900C983CC /* Utils */,
 			);
 			path = Sandpiper;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22DD35802076A738004ED9FC /* ViewController.swift in Sources */,
+				22DD35802076A738004ED9FC /* LoginViewController.swift in Sources */,
 				2291EE292076B62F00C983CC /* UIColor+Extensions.swift in Sources */,
 				22DD357E2076A738004ED9FC /* AppDelegate.swift in Sources */,
 			);
