@@ -21,13 +21,10 @@ class AppleMusicController {
         // update loader: "Contacting Apple"
         break
       case .denied:
-        print("Denied")
         break
       case .notDetermined:
-        print("not determinded")
         break
       case .restricted:
-        print("restricted")
         break
       }
     }
@@ -37,15 +34,11 @@ class AppleMusicController {
   func requestCountryCode(completion: @escaping (String?) -> ()) {
     cloudServiceController.requestStorefrontCountryCode { (countryCode, error) in
       guard error == nil else {
-        print("error")
-        print(error as Any)
         completion(nil)
         return
       }
       
       if let country = countryCode {
-        print("Country")
-        print(country)
         completion(country)
       }
     }
@@ -55,16 +48,13 @@ class AppleMusicController {
   func requestUserToken(developerToken: String, completionHandler: @escaping (Bool)->()) {
     self.cloudServiceController.requestUserToken(forDeveloperToken: developerToken) { (response, error) in
       guard error == nil else {
-        print(error!)
         completionHandler(false)
         return
       }
       
       if let response = response {
         KeychainManager().setAppleMusicToken(token: response)
-        // TODO: Update loader: "Finishing up"
         completionHandler(true)
-        print("Apple Music Token: \(response))")
       }
     }
   }

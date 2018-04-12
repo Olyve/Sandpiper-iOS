@@ -55,7 +55,6 @@ class MainViewController: UIViewController {
           } else {
             APESuperHUD.removeHUD(animated: true, presentingView: self.view)
             self.showSimpleAlert(title: "Oops!", message: "Something went wrong while connecting with Sand Piper")
-            print("Something went wrong getting the developer token")
           }
         })
       }
@@ -66,10 +65,8 @@ class MainViewController: UIViewController {
     AMcontroller.requestUserToken(developerToken: developerToken,completionHandler: { (success) in
       if success {
         self.getCountryCode()
-        print("Success logging in apple music")
       } else {
         self.showSimpleAlert(title: "Oops!", message: "Something went wrong while loggin in with apple")
-        print("Somthing went wrong with apple music login")
       }
     })
   }
@@ -84,7 +81,6 @@ class MainViewController: UIViewController {
         self.successfullLogin()
       } else {
         self.showSimpleAlert(title: "Oops!", message: "Something went wrong connecting to Apple, Please try again later")
-        print("Something went wrong while getting the country code")
       }
     }
   }
@@ -92,19 +88,19 @@ class MainViewController: UIViewController {
   // Checks if all the values and updates the user on our server
   func successfullLogin() {
     guard let AMToken = keychainManager.getAppleMusicToken() else {
-      print("No Apple Music token found in keychain")
+      // No Apple Music token found in keychain
       return
     }
     guard let userId = keychainManager.getUserID() else {
-      print("No User ID found in keychain")
+      // No User ID found in keychain
       return
     }
     guard let bearer = keychainManager.getUserToken() else {
-      print("No User Token/Bearer found in keychain ")
+      // No User Token/Bearer found in keychain
       return
     }
     guard let countryCode = keychainManager.getCountryCode() else {
-      print("No country code found in keychain")
+      // No country code found in keychain
       return
     }
     
@@ -112,7 +108,6 @@ class MainViewController: UIViewController {
       if success {
         self.success()
       } else {
-        print("Something went wrong updating the user")
         self.showSimpleAlert(title: "Oops!", message: "Something went wrong, Sorry! Please try again later")
       }
     }

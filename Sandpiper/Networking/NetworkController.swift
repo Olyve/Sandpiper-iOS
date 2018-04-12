@@ -31,25 +31,24 @@ struct NetworkController {
               if let id = jsonData["user_id"] as? String {
                 // Store user id in keychain
                 keychain.setUserID(id: id)
-                print("Login success")
                 completion(true)
               } else {
-                print("User id was not in JSON")
+                // User id is not in json
                 completion(false)
               }
             } else {
-              print("Token was not in JSON")
+              // Token was not in JSON
               completion(false)
             }
           } else {
-            print("Data was not in JSON")
+            // Data was not in JSON
             completion(false)
           }
         } else {
-          print("Received JSON is not valid")
+          // Received JSON is not valid
+          completion(false)
         }
       case .failure:
-        print("Login Failed")
         completion(false)
       }
     }
@@ -69,7 +68,6 @@ struct NetworkController {
   func getDeveloperToken(completion: @escaping (String?) -> ()) {
     if let userToken = KeychainManager().getUserToken() {
       controller.request(.generateDeveloperToken(bearer: userToken)) { (result) in
-        print(result)
         switch result {
         case .success(let response):
           var json: [String: Any] = [:]
@@ -77,7 +75,6 @@ struct NetworkController {
           do {
             json = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as! [String: Any]
           } catch {
-            print("Received JSON is not valid")
             completion(nil)
             return
           }
@@ -86,21 +83,20 @@ struct NetworkController {
             if let token = jsonData["token"] as? String {
               completion(token)
             } else {
-              print("Token was not in JSON")
+              // Token was not in JSON
               completion(nil)
             }
           } else {
-            print("Data was not in JSON")
+            // Data was not in JSON
             completion(nil)
           }
         case .failure(let error):
-          print("Get devToken failed")
-          print(error)
+          // Get Developer Token failed
           completion(nil)
         }
       }
     } else {
-      print("No User is logged in")
+      // No user is logged in
       completion(nil)
     }
   }
