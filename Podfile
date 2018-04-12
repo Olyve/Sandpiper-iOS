@@ -7,5 +7,7 @@ target 'Sandpiper' do
 
   # Pods for Sandpiper
   pod 'Moya'
+  pod 'KeychainSwift'
+  pod 'APESuperHUD', :git => 'https://github.com/apegroup/APESuperHUD.git'
 
 end
