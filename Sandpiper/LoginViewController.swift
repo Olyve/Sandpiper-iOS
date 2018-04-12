@@ -13,10 +13,12 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var emailInput: UITextField!
   @IBOutlet weak var passwordInput: UITextField!
   
+  @IBOutlet weak var submitButton: UIButton!
   let networkController = NetworkController()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
   }
   
   /*

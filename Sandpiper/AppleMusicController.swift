@@ -12,8 +12,6 @@ import StoreKit
 class AppleMusicController {
   let cloudServiceController = SKCloudServiceController()
   
-  var currentCaller: MainViewController?
-  
   // Request authorization from the user to access apple music
   func requestAuthorization(completionHandler: @escaping (SKCloudServiceAuthorizationStatus) -> ()) {
     SKCloudServiceController.requestAuthorization { (status) in

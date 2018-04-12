@@ -14,9 +14,9 @@
 		22DD35852076A739004ED9FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22DD35842076A739004ED9FC /* Assets.xcassets */; };
 		22DD35882076A739004ED9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DD35862076A739004ED9FC /* LaunchScreen.storyboard */; };
 		82D44B2CFBB098B506A4D385 /* Pods_Sandpiper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FC336EC50B737C619DC485 /* Pods_Sandpiper.framework */; };
+		C4255E55207FD90A0053E711 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4255E54207FD90A0053E711 /* Constants.swift */; };
 		C44C7840207E9ED700503566 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C783F207E9ED700503566 /* NetworkController.swift */; };
 		C44C7843207E9EEF00503566 /* AppleMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C7842207E9EEF00503566 /* AppleMusicController.swift */; };
-		C44C7845207E9F9000503566 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C7844207E9F9000503566 /* Constants.swift */; };
 		C44C7847207EA05900503566 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C7846207EA05900503566 /* UIViewController+Extensions.swift */; };
 		C44C7849207EA99400503566 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C7848207EA99400503566 /* APIEndpoints.swift */; };
 		C44C784B207EC49400503566 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C784A207EC49400503566 /* MainViewController.swift */; };
@@ -34,9 +34,9 @@
 		22DD35892076A739004ED9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4DDB83464E04F0199E1AABC /* Pods-Sandpiper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandpiper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sandpiper/Pods-Sandpiper.release.xcconfig"; sourceTree = "<group>"; };
 		B3607192B9F8B05298909EB5 /* Pods-Sandpiper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandpiper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sandpiper/Pods-Sandpiper.debug.xcconfig"; sourceTree = "<group>"; };
+		C4255E54207FD90A0053E711 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C44C783F207E9ED700503566 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		C44C7842207E9EEF00503566 /* AppleMusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicController.swift; sourceTree = "<group>"; };
-		C44C7844207E9F9000503566 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C44C7846207EA05900503566 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		C44C7848207EA99400503566 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		C44C784A207EC49400503566 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 				22DD35812076A738004ED9FC /* Main.storyboard */,
 				22DD35892076A739004ED9FC /* Info.plist */,
 				2291EE272076B61900C983CC /* Utils */,
-				C44C7844207E9F9000503566 /* Constants.swift */,
+				C4255E54207FD90A0053E711 /* Constants.swift */,
 			);
 			path = Sandpiper;
 			sourceTree = "<group>";
@@ -249,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C44C7840207E9ED700503566 /* NetworkController.swift in Sources */,
+				C4255E55207FD90A0053E711 /* Constants.swift in Sources */,
 				C44C7849207EA99400503566 /* APIEndpoints.swift in Sources */,
 				22DD35802076A738004ED9FC /* LoginViewController.swift in Sources */,
 				2291EE292076B62F00C983CC /* UIColor+Extensions.swift in Sources */,
@@ -256,7 +257,6 @@
 				C44C7843207E9EEF00503566 /* AppleMusicController.swift in Sources */,
 				C44C784B207EC49400503566 /* MainViewController.swift in Sources */,
 				22DD357E2076A738004ED9FC /* AppDelegate.swift in Sources */,
-				C44C7845207E9F9000503566 /* Constants.swift in Sources */,
 				C44C784D207ED4D300503566 /* KeychainManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
