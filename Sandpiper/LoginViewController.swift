@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import APESuperHUD
 
 class LoginViewController: UIViewController {
   @IBOutlet weak var emailInput: UITextField!
@@ -23,6 +24,7 @@ class LoginViewController: UIViewController {
    if they are given we make the login request
    */
   @IBAction func LoginAction(_ sender: Any) {
+    self.dismissKeyboard()
     guard let email = emailInput.text, !email.isEmpty else {
       showSimpleAlert(title: "Oops!", message: "Please enter your email")
       return
@@ -32,11 +34,20 @@ class LoginViewController: UIViewController {
       return
     }
     
+    DispatchQueue.main.async {
+      APESuperHUD.showOrUpdateHUD(loadingIndicator: .standard, message: "Looking for you", presentingView: self.view)
+    }
+    
     networkController.login(email: email, password: password) { (success) in
       if success {
-        self.performSegue(withIdentifier: "success", sender: nil)
+        DispatchQueue.main.async {
+          APESuperHUD.removeHUD(animated: true, presentingView: self.view, completion: {
+            self.performSegue(withIdentifier: "success", sender: nil)
+          })
+        }
       } else {
-        self.showSimpleAlert(title: "Oops!", message: "Something went wrong. Sorry for the inconvenience! Please try again later")
+        APESuperHUD.removeHUD(animated: true, presentingView: self.view, completion: nil)
+        self.showSimpleAlert(title: "Oops!", message: "Something went wrong. Please try again")
       }
     }
   }
@@ -45,6 +56,5 @@ class LoginViewController: UIViewController {
     emailInput.resignFirstResponder()
     passwordInput.resignFirstResponder()
   }
-  
 }
 

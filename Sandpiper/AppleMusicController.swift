@@ -36,24 +36,26 @@ class AppleMusicController {
   }
   
   // Request country the user account is assosiated with
-  func requestCountryCode() {
+  func requestCountryCode(completion: @escaping (String?) -> ()) {
     cloudServiceController.requestStorefrontCountryCode { (countryCode, error) in
       guard error == nil else {
         print("error")
-        print(error)
+        print(error as Any)
+        completion(nil)
         return
       }
       
       if let country = countryCode {
         print("Country")
         print(country)
+        completion(country)
       }
     }
   }
   
   // Request the user to authenticate with apple music to access more user specific information
-  func requestUserToken(completionHandler: @escaping (Bool)->()) {
-    cloudServiceController.requestUserToken(forDeveloperToken: Constants.developerKey) { (response, error) in
+  func requestUserToken(developerToken: String, completionHandler: @escaping (Bool)->()) {
+    self.cloudServiceController.requestUserToken(forDeveloperToken: developerToken) { (response, error) in
       guard error == nil else {
         print(error!)
         completionHandler(false)
@@ -61,10 +63,10 @@ class AppleMusicController {
       }
       
       if let response = response {
+        KeychainManager().setAppleMusicToken(token: response)
+        // TODO: Update loader: "Finishing up"
         completionHandler(true)
-        // Update loader: "Finishing up"
         print("Apple Music Token: \(response))")
-        // TODO: Send Token to api
       }
     }
   }

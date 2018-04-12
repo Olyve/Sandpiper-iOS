@@ -11,7 +11,7 @@ import Moya
 
 enum APIEndpoints {
   case login(email: String, password: String)
-  case updateUser(appleMusicToken: String, countryCode: String, userID: Int, bearer: String)
+  case updateUser(appleMusicToken: String, countryCode: String, userID: String, bearer: String)
   case generateDeveloperToken(bearer: String)
 }
 

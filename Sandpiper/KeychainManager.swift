@@ -15,6 +15,8 @@ struct KeychainManager {
   // Keychain keys
   let userToken = "UserToken"
   let userID = "UserID"
+  let AMToken = "AppleMusicToken"
+  let countryCode = "CountryCode"
   
   // MARK: UserToken
   // Sets the user token to keychain
@@ -52,5 +54,43 @@ struct KeychainManager {
   // Removes the user id from keychain
   func deleteUserId() {
     keychain.delete(userID)
+  }
+  
+  // MARK: Apple Music Token
+  // Sets the apple music token to keychain
+  func setAppleMusicToken(token: String) {
+    keychain.set(token, forKey: AMToken)
+  }
+  
+  // Retrieves the apple music token
+  func getAppleMusicToken() -> String? {
+    if let token = keychain.get(AMToken) {
+      return token
+    }
+    return nil
+  }
+  
+  // Removes the apple music token
+  func deleteAppleMusicToken() {
+    keychain.delete(AMToken)
+  }
+  
+  // MARK: Country code
+  // Sets the country code to keychain
+  func setCountryCode(code: String) {
+    keychain.set(code, forKey: countryCode)
+  }
+  
+  // Retrieves country code to keychain
+  func getCountryCode() -> String? {
+    if let code = keychain.get(countryCode) {
+      return code
+    }
+    return nil
+  }
+  
+  // Removes country code to keychain
+  func deleteCountryCode() {
+    keychain.delete(countryCode)
   }
 }

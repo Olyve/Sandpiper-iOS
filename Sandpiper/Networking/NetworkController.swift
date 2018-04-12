@@ -31,6 +31,7 @@ struct NetworkController {
               if let id = jsonData["user_id"] as? String {
                 // Store user id in keychain
                 keychain.setUserID(id: id)
+                print("Login success")
                 completion(true)
               } else {
                 print("User id was not in JSON")
@@ -54,20 +55,58 @@ struct NetworkController {
     }
   }
   
-  func updateUser(appleMusicToken: String, countryCode: String, userID: Int, bearer: String, completion: ()->()) {
+  func updateUser(appleMusicToken: String, countryCode: String, userID: String, bearer: String, completion: @escaping (Bool)->()) {
     controller.request(.updateUser(appleMusicToken: appleMusicToken, countryCode: countryCode, userID: userID, bearer: bearer)) { (result) in
       switch result {
       case .success(let response):
-        print("Update User success")
-        print(response)
+        completion(true)
       case .failure(let error):
-        print("Update user failed")
-        print(error)
+        completion(false)
       }
     }
   }
   
-  func getDeveloperToken() {
-    
+  // Is not implemented yet on server
+  func getDeveloperToken(completion: @escaping (String?) -> ()) {
+    if let userToken = KeychainManager().getUserToken() {
+      controller.request(.generateDeveloperToken(bearer: userToken)) { (result) in
+        print(result)
+        switch result {
+        case .success(let response):
+          var json: [String: Any] = [:]
+          // Check if valid JSON
+          do {
+            json = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as! [String: Any]
+          } catch {
+            print("Received JSON is not valid")
+            completion(nil)
+            return
+          }
+          print(json)
+          if let jsonData = json["data"] as? [String: Any] {
+            // Check if token is in data
+            if let token = jsonData["token"] as? String {
+              // Store the token in keychain
+//                let keychain = KeychainManager()
+//                keychain.setUserToken(token: token)
+            } else {
+              print("Token was not in JSON")
+              completion(nil)
+            }
+          } else {
+            print("data was not in JSON")
+            completion(nil)
+          }
+        case .failure(let error):
+          print("Get devToken failed")
+          print(error)
+          completion(nil)
+        }
+      }
+    } else {
+      print("No User is logged in")
+      completion(nil)
+    }
   }
+  
 }
