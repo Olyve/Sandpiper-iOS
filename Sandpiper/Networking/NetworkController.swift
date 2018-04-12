@@ -42,13 +42,13 @@ struct NetworkController {
               completion(false)
             }
           } else {
-            print("data was not in JSON")
+            print("Data was not in JSON")
             completion(false)
           }
         } else {
           print("Received JSON is not valid")
         }
-      case .failure(let error):
+      case .failure:
         print("Login Failed")
         completion(false)
       }
@@ -58,15 +58,14 @@ struct NetworkController {
   func updateUser(appleMusicToken: String, countryCode: String, userID: String, bearer: String, completion: @escaping (Bool)->()) {
     controller.request(.updateUser(appleMusicToken: appleMusicToken, countryCode: countryCode, userID: userID, bearer: bearer)) { (result) in
       switch result {
-      case .success(let response):
+      case .success:
         completion(true)
-      case .failure(let error):
+      case .failure:
         completion(false)
       }
     }
   }
   
-  // Is not implemented yet on server
   func getDeveloperToken(completion: @escaping (String?) -> ()) {
     if let userToken = KeychainManager().getUserToken() {
       controller.request(.generateDeveloperToken(bearer: userToken)) { (result) in
@@ -82,19 +81,16 @@ struct NetworkController {
             completion(nil)
             return
           }
-          print(json)
           if let jsonData = json["data"] as? [String: Any] {
             // Check if token is in data
             if let token = jsonData["token"] as? String {
-              // Store the token in keychain
-//                let keychain = KeychainManager()
-//                keychain.setUserToken(token: token)
+              completion(token)
             } else {
               print("Token was not in JSON")
               completion(nil)
             }
           } else {
-            print("data was not in JSON")
+            print("Data was not in JSON")
             completion(nil)
           }
         case .failure(let error):
@@ -108,5 +104,4 @@ struct NetworkController {
       completion(nil)
     }
   }
-  
 }

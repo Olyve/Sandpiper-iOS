@@ -49,20 +49,32 @@ class MainViewController: UIViewController {
   func authenticateAM() {
     AMcontroller.requestAuthorization { (status) in
       if status == .authorized {
-        // TODO: Get developer token from server
-        let developerToken = Constants.developerKey
-        self.AMcontroller.requestUserToken(developerToken: developerToken,completionHandler: { (success) in
-          if success {
-            self.getCountryCode()
-            print("Success logging in apple music")
+        self.APIcontroller.getDeveloperToken(completion: { (token) in
+          if let token = token {
+            self.getAMUserToken(developerToken: token)
           } else {
-            self.showSimpleAlert(title: "Oops!", message: "Something went wrong while loggin in with apple")
-            print("Somthing went wrong with apple music login")
+            APESuperHUD.removeHUD(animated: true, presentingView: self.view)
+            self.showSimpleAlert(title: "Oops!", message: "Something went wrong while connecting with Sand Piper")
+            print("Something went wrong getting the developer token")
           }
         })
       }
     }
   }
+  
+  func getAMUserToken(developerToken: String) {
+    AMcontroller.requestUserToken(developerToken: developerToken,completionHandler: { (success) in
+      if success {
+        self.getCountryCode()
+        print("Success logging in apple music")
+      } else {
+        self.showSimpleAlert(title: "Oops!", message: "Something went wrong while loggin in with apple")
+        print("Somthing went wrong with apple music login")
+      }
+    })
+  }
+    
+
   
   // Gets the countrycode and stores it in keychain
   func getCountryCode() {
@@ -71,6 +83,7 @@ class MainViewController: UIViewController {
         self.keychainManager.setCountryCode(code: code)
         self.successfullLogin()
       } else {
+        self.showSimpleAlert(title: "Oops!", message: "Something went wrong connecting to Apple, Please try again later")
         print("Something went wrong while getting the country code")
       }
     }
