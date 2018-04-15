@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -141,10 +140,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="mn3-Mb-hdR">
-                                <rect key="frame" x="132" y="293.33333333333331" width="150" height="150"/>
+                                <rect key="frame" x="127" y="323" width="160" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="6KX-EZ-GDB"/>
-                                    <constraint firstAttribute="width" secondItem="mn3-Mb-hdR" secondAttribute="height" multiplier="1:1" id="VMJ-XK-xap"/>
+                                    <constraint firstAttribute="height" constant="90" id="6KX-EZ-GDB"/>
+                                    <constraint firstAttribute="width" constant="160" id="EqK-fa-xZb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <size key="titleShadowOffset" width="5" height="5"/>
@@ -182,6 +181,21 @@ Press the button below to get started!</string>
                                 <color key="textColor" name="white"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeB-Fj-yXa">
+                                <rect key="frame" x="157" y="591" width="100" height="42"/>
+                                <color key="backgroundColor" name="logout"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="QTa-jg-CXb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="LogoutUser:" destination="cCD-XS-Of1" eventType="touchUpInside" id="TVP-WY-K5D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
@@ -192,6 +206,8 @@ Press the button below to get started!</string>
                             <constraint firstItem="0dN-yd-oJL" firstAttribute="top" secondItem="LZV-8S-n2m" secondAttribute="top" constant="30" id="IBG-Tv-kgK"/>
                             <constraint firstItem="fkP-2i-4wz" firstAttribute="centerX" secondItem="fgC-8K-4OS" secondAttribute="centerX" id="RR9-gG-jVb"/>
                             <constraint firstItem="LZV-8S-n2m" firstAttribute="trailing" secondItem="0dN-yd-oJL" secondAttribute="trailing" constant="20" id="Ss8-DO-5A2"/>
+                            <constraint firstItem="Md2-PV-Lvb" firstAttribute="top" secondItem="TeB-Fj-yXa" secondAttribute="bottom" constant="32" id="di9-I4-96R"/>
+                            <constraint firstItem="TeB-Fj-yXa" firstAttribute="centerX" secondItem="LZV-8S-n2m" secondAttribute="centerX" id="gyC-6R-tXE"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fkP-2i-4wz" secondAttribute="trailing" id="hdy-Bt-psW"/>
                             <constraint firstItem="LZV-8S-n2m" firstAttribute="bottom" secondItem="Md2-PV-Lvb" secondAttribute="bottom" constant="30" id="j0R-Fr-3ci"/>
                             <constraint firstItem="fkP-2i-4wz" firstAttribute="leading" secondItem="fgC-8K-4OS" secondAttribute="leading" constant="20" id="su5-i7-thQ"/>
@@ -204,12 +220,14 @@ Press the button below to get started!</string>
                         <outlet property="connectButton" destination="mn3-Mb-hdR" id="EsE-mu-9ex"/>
                         <outlet property="disclaimerLabel" destination="Md2-PV-Lvb" id="P3V-ja-5Yn"/>
                         <outlet property="headerLabel" destination="0dN-yd-oJL" id="xMu-wo-VqB"/>
+                        <outlet property="logoutButton" destination="TeB-Fj-yXa" id="3Fn-Rx-e6Q"/>
                         <outlet property="successLabel" destination="fkP-2i-4wz" id="gSe-Ce-HAw"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="logout" id="8Ss-gP-NcS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xst-qm-aKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624.6376811594205" y="116.57608695652175"/>
+            <point key="canvasLocation" x="1658" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2cJ-fa-hxe">
@@ -242,14 +260,17 @@ Press the button below to get started!</string>
         <namedColor name="confirm">
             <color red="0.1803921568627451" green="0.80000000000000004" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="logout">
+            <color red="0.91764705882352937" green="0.32549019607843138" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="navigation">
             <color red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="white">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="8Ss-gP-NcS"/>
+    </inferredMetricsTieBreakers>
 </document>

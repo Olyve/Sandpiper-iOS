@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
   
   // UI elements
   @IBOutlet weak var connectButton: UIButton!
+  @IBOutlet weak var logoutButton: UIButton!
   @IBOutlet weak var headerLabel: UILabel!
   @IBOutlet weak var disclaimerLabel: UILabel!
   @IBOutlet weak var successLabel: UILabel!
@@ -28,10 +29,15 @@ class MainViewController: UIViewController {
     connectButton.titleLabel?.textAlignment = .center
     connectButton.layer.cornerRadius = connectButton.frame.height / 10
     
-    connectButton.layer.shadowColor = UIColor.black.cgColor
-    connectButton.layer.shadowOffset = CGSize(width: 3, height: 5)
-    connectButton.layer.shadowRadius = 5
-    connectButton.layer.shadowOpacity = 1.0
+    logoutButton.titleLabel?.textAlignment = .center
+    logoutButton.layer.cornerRadius = logoutButton.frame.height / 10
+    
+    for button in [connectButton, logoutButton] {
+      button?.layer.shadowColor = UIColor.black.cgColor
+      button?.layer.shadowOffset = CGSize(width: 3, height: 5)
+      button?.layer.shadowRadius = 5
+      button?.layer.shadowOpacity = 1.0
+    }
   }
 
   @IBAction func ConnectAction(_ sender: Any) {
@@ -39,6 +45,15 @@ class MainViewController: UIViewController {
       APESuperHUD.showOrUpdateHUD(loadingIndicator: .standard, message: "Connecting to Apple", presentingView: self.view)
     }
     authenticateAM()
+  }
+  
+  @IBAction func LogoutUser(_ sender: UIButton) {
+    keychainManager.deleteCountryCode()
+    keychainManager.deleteAppleMusicToken()
+    keychainManager.deleteUserToken()
+    keychainManager.deleteUserId()
+    
+    self.performSegue(withIdentifier: "logout", sender: nil)
   }
   
   /*
@@ -124,8 +139,6 @@ class MainViewController: UIViewController {
       })
     }
   }
-  
-  
   
   func fadeOutLabelsAndButton() {
     let animationDuration = 0.5
